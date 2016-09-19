@@ -1,0 +1,19 @@
+/*-----------------------------------FOOTER---------------------------------------------------------------*/
+footer {
+	width: 100%;
+	background-color: #D1EFED;
+	clear: both;
+	
+	.col-md-4 {
+		text-align: center;
+		
+		h3{
+		@extend %links;
+		}
+		ul {
+		
+		font-size: 1em;
+		line-height: 30px;
+		}
+	}
+}

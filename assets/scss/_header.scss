@@ -1,0 +1,40 @@
+/*----------------------------------------HEADER-------------------------------------------------*/
+%links {
+		font-size: $fontSizeL;
+		line-height: 60px;
+		letter-spacing: 2px;
+}
+
+header {
+	width: 100%;
+	border-bottom: 1px solid grey;
+	
+	img{
+
+		display: block;
+		width: 70%;
+	}
+	
+	.login {
+		@include linkState($unactiveColor,  $activeColor);
+		@extend %links;
+		float: right;
+		margin: 10px;
+		position: relative;
+		
+		left: -30px;
+		top: -80px;
+	}
+	.register{
+		@extend .login;
+		margin-right: 30px;
+	}
+}
+	.modal-header{
+		@extend %links;
+		text-align: center;
+	}
+	.modal-footer {
+		@include linkState($backgroundColor,  $backgroundColor);
+	}
+	

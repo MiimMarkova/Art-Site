@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+@import 'mixins';
+@import 'variables';
+@import 'header';
+@import 'navbar';
+@import 'footer';
+@import 'reset';
+
+/*-----------------------------------Main------------------------------------------------------------*/
+body {
+	background-image: url('../images/bg-blue.png');
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 16px;
+	
+	#sidebar-wrapper{
+	padding: 30px;
+		margin: $marginL 0;
+		height:600px;
+		background-color: #F3FBE4;
+		border-radius: 5px;
+		
+		ul {
+			li{
+			@extend %links;
+			font-size: 1em;
+			}
+		}
+	}
+	
+	.profileArticle {
+	text-align: center;
+	margin: $marginL auto;
+	background-color: #F3FBE4;
+	border-radius: 5px;
+	
+		#upload{
+		width: 100%;
+		height: 100%;
+		}
+		h2{
+		line-height: 30px;
+		}
+	
+	 	img{
+	 		display: block;
+	 		width: 80%;
+	 		height: auto;
+	 		margin: $marginS auto;
+	 		border-radius: 5px;
+	 	}
+	 }
+}
