@@ -8,10 +8,10 @@ $query ="SELECT * FROM `posts`";
 $result = mysqli_query($conn, $query) or trigger_error(mysqli_error($conn)." in ".$query);
 
 if (!$result) {
-	echo "Could not successfully run query";
+	return;
 }
 if (mysqli_num_rows($result) == 0){
-	echo "No rows found";
+	return;
 
 }
 

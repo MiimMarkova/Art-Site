@@ -126,19 +126,17 @@ session_start();
 	</header>
 	<nav class="navbar">
 		<ul>
-			<li><a href="index.php">What's New</a></li>
-			<li><a href="shop.php">Categories</a></li>
-			<li><a data-toggle="modal" href="#myModalLogin">Login</a></li>
-			<li><a data-toggle="modal" href="#myModalRegister">Register</a></li>
-			<li ><a href="assets/server/logout.php">Logout</a></li>
-			<li><a href="profile.php">Profile</a></li>
+			<li><a href="index.php" id = "index">What's New</a></li>
+			<li><a href="shop.php" id = "shop">Categories</a></li>
+			<li><a href="profile.php" id = "profile">Profile</a></li>
+			<li ><a href="assets/server/logout.php" id = "logout">Logout</a></li>
+			<li><a data-toggle="modal" href="#myModalLogin" id = "login">Login</a></li>
+			<li><a data-toggle="modal" href="#myModalRegister"id = "register">Register</a></li>
 		</ul>
 	</nav>
 	
 	
 	<div class="container">
-	<p style ="display:hidden;" id = "hidden"><?php if (isset($_SESSION['valid']) ) {
-	echo $_SESSION['id']; } else { echo''; }; ?>  </p>
 	</div>
 	
 	<!-- ---------------------------------------------UPLOAD MODAL------------------------------------------ -->
@@ -152,28 +150,29 @@ session_start();
 	      <div class="modal-body">
 	      <i class = "icon-plus"></i> 
 	      
-	      	<form role = "form">
+	      	<form role = "form" id = "uploadForm">
 	      	<div class="form-group">
 	        <label for="fileName">File title:</label>
-	        <input type="text" class="form-control" id="fileName" />
+	        <input type="text" class="form-control" name = "fileName" id="fileName" />
 	        </div>
 	        <div class="form-group">
 	        <label for="fileDescription">Description:</label>
-	        <input type="text" class="form-control" id="fileDescription" />
+	        <input type="text" class="form-control" name = "fileDescription" id="fileDescription" />
 	        </div>
 
 	         <div class="form-group">
 	        <label for="fileUpload">Upload file:</label>
-	        <input type="text" name="fileToUpload"  class="form-control" id="fileToUpload">
+	        <input type="file" name="fileToUpload"  class="form-control" id="fileToUpload">
 	        </div>
 	        </form>
-	        <div class="form-group">
-	        <label for="fileDirectory">Upload file - path:</label>
-	        <select name="fileDirectory" id = "fileDirectory">
+	        <div class="form-group" id = "after">
+	        <label for="fileDirectory">Choose folder:</label>
+	        <select class="form-control" name="fileDirectory" id = "fileDirectory">
   				<option value="common">Common</option>
   				<option value="private">Private</option>
 			</select>
 	        </div>
+	        <p id ="upLogin"></p>
 	      </div>
 	    	<div class="modal-footer">
 	        <button type="button" class="btn btn-default" id = "btn-upload">Upload</button>
@@ -189,13 +188,21 @@ session_start();
 	   			
 			  <div id="sidebar-wrapper">
 		   		<aside>
-				   			<h2>Common</h2>
-				   		<ul>
-				   			<li><p id = "upload">
-						<button data-toggle="modal" href =  "#uploadModal">Upload</button>
-						</p></li>
+				   			<h2>Directories</h2>
+				   			
+				   			<ul id = "directoriesList">
+				   				
+				   			</ul>
 				   		
-				   		</ul>
+				   		<select class="form-control" id = "selDir">
+				   		<option value = "choose a folder:" > Choose a folder: </option>
+				   		<option value = "all" > All </option>
+				   		</select>
+				   		<p id = "upload">
+				
+						<button type = "button"data-toggle="modal" href="#uploadModal" class = "btn-link">Upload Picture</button>
+						</p>
+				
 
 				   		
 		   		</aside>

@@ -24,7 +24,7 @@ class Register {
 	validateEmail() {
 		var email = this.getEmail();
 		if (email.length > 50 || email.length < 6) {
-			alert('Invalid email lenght');
+			$('#emailError').html('Invalid email lenght');
 			return false;
 		}
 		return true;
@@ -35,11 +35,11 @@ class Register {
 		var pass2 = this.getPass2();
 		
 		if(pass1 !== pass2) {
-			alert('Repeat password is not the same;')
+			$('#regError').html('Repeat password is not the same;')
 			return false;
 		}
 		if (pass1.length < 6 || pass1.lenght > 20){
-			alert('Invalid password lenght');
+			$('#regError').html('Invalid password lenght');
 			return false;
 		}
 		return true;
@@ -53,10 +53,10 @@ class Register {
 			console.log(data);
 			if (data) {
 				if (data == 'wrong password'){
-			          alert("Wrong password.");
+					$('#regError').html("Wrong password.");
 			          return;
 				}
-		          alert("Exists Already");
+				$('#emailError').html("Exists Already");
 		          return false;
 			} else {
 				return true;
@@ -73,7 +73,7 @@ class Register {
 			var pass = this.getPass1();
 		}
 		if (!email) {
-			alert('inavalid input');
+			$('#emailError').html('inavalid input');
 			return;
 		}
 		if(!this.checkIfExists(email, pass)) {
@@ -82,7 +82,7 @@ class Register {
 				password1: pass
 			}, function () {
 				$('#myModalRegister').modal('hide');
-		          alert("Registry Successfull");
+				$('#regError').html("Registry Successfull");
 			});
 		}
 	}

@@ -1,0 +1,43 @@
+%gallery {
+	height: 100%;
+		.profileArticle {
+		text-align: center;
+		margin: $marginL auto;
+		background-color: #F3FBE4;
+		border-radius: 5px;
+			.picWrapper{
+			width: 100%;
+			height: 200px;
+			overflow: hidden;
+			}
+			
+			h2{
+			line-height: 30px;
+			}
+		
+		 	img{
+		 		display: inline-block;
+		 		width: 100%;
+		 		height: auto;
+		 		margin: $marginS auto;
+		 		border-radius: 5px;
+		 	}
+		 }
+		 .modal-body{
+		 	max-height: 80vh;
+		 	text-align: center;
+		 	color: $activeColor;
+		 	.modPicWrapper{
+		 		width: 60%;
+				height: 60%;
+				overflow: hidden;
+				margin: $marginS auto;
+		 		img {
+		 		width: 100%;
+				height: 100%;
+		 		}
+		 	
+		 	}
+		 
+		 }
+}

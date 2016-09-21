@@ -128,6 +128,38 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+body #gallery-container {
+  height: 100%; }
+  body #gallery-container .profileArticle {
+    text-align: center;
+    margin: 10% auto;
+    background-color: #F3FBE4;
+    border-radius: 5px; }
+    body #gallery-container .profileArticle .picWrapper {
+      width: 100%;
+      height: 200px;
+      overflow: hidden; }
+    body #gallery-container .profileArticle h2 {
+      line-height: 30px; }
+    body #gallery-container .profileArticle img {
+      display: inline-block;
+      width: 100%;
+      height: auto;
+      margin: 2% auto;
+      border-radius: 5px; }
+  body #gallery-container .modal-body {
+    max-height: 80vh;
+    text-align: center;
+    color: #7EC1B0; }
+    body #gallery-container .modal-body .modPicWrapper {
+      width: 60%;
+      height: 60%;
+      overflow: hidden;
+      margin: 2% auto; }
+      body #gallery-container .modal-body .modPicWrapper img {
+        width: 100%;
+        height: 100%; }
+
 /*-----------------------------------Main------------------------------------------------------------*/
 body {
   background-image: url("../images/bg-blue.png");
@@ -145,18 +177,5 @@ body {
         height: auto; } }
     body #sidebar-wrapper ul li {
       font-size: 1em; }
-  body .profileArticle {
-    text-align: center;
-    margin: 10% auto;
-    background-color: #F3FBE4;
-    border-radius: 5px; }
-    body .profileArticle h2 {
-      line-height: 30px; }
-    body .profileArticle img {
-      display: block;
-      width: 80%;
-      height: auto;
-      margin: 2% auto;
-      border-radius: 5px; }
 
 /*# sourceMappingURL=shop.css.map */

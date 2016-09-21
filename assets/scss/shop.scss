@@ -6,7 +6,7 @@
 @import 'navbar';
 @import 'footer';
 @import 'reset';
-
+@import 'gallery';
 /*-----------------------------------Main------------------------------------------------------------*/
 body {
 	background-image: url('../images/bg-blue.png');
@@ -31,22 +31,10 @@ body {
 			}
 		}
 	}
+	#gallery-container{
+		@extend %gallery;
 	
-	.profileArticle {
-	text-align: center;
-	margin: $marginL auto;
-	background-color: #F3FBE4;
-	border-radius: 5px;
-		h2{
-		line-height: 30px;
-		}
-	 	img{
-	 		display: block;
-	 		width: 80%;
-	 		height: auto;
-	 		margin: $marginS auto;
-	 		border-radius: 5px;
-	 	}
-	 }
+	}
+	
 }
 	

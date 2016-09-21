@@ -24,7 +24,7 @@ if (mysqli_num_rows($result) != 0) {
 	//if email is found comares the password...
 	$row = mysqli_fetch_assoc($result);
 	//$row["Email"], $row["Pasword"];
-	if( $row["Password"] == md5($password) ) {
+	if( $row["Password"] == md5($password) || $row["Password"] == $password) {
 		$_SESSION['id'] = $row['id']; 
 		$_SESSION['valid'] = true;
 		echo $row["id"];

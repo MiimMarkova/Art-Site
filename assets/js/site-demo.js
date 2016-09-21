@@ -3,17 +3,36 @@
  */
 
 $( document ).ready(function () {
-	
+	var array = [];
 		var gallery = new Gallery($('#gallery-container'));
 		gallery.init();
+	
 		
-		var id = $('#hidden').html();
+		var id = sessionStorage.getItem("id");
 		
-		if(id > 0){
-			var profile = new Profile (id);
-			profile.init();
+		$( "#selDir" ).on('change', function() {
+			if (id ) {
+			sessionStorage.setItem('selDir', $('#selDir').val());
+			console.log(sessionStorage.getItem('selDir'));
+			$('#selDir').val(sessionStorage.getItem('selDir'));
+			}
+			location.reload();
+		});
+		console.log(sessionStorage.getItem('selDir'));
+		if (sessionStorage.getItem('selDir')) {
+			$('#selDir').val(sessionStorage.getItem('selDir'));
 		}
-		
+		if(id !== null){
+			var profile = new Profile (id);
+			console.log(profile);
+			profile.init();
+			$('#register').hide();
+			$('#login').hide();
+		} else {
+			$('#logout').hide();
+			$('#profile').hide();
+		}
+	
 	$("#btn-register").click(function(e) {
 		e.preventDefault();
 			
@@ -28,34 +47,40 @@ $( document ).ready(function () {
 			var register = new Register (email, password1, password2);
 				register.createRegistry();
 			}
+			
 	});
 	$("#btn-upload").click(function(e) {
 		e.preventDefault;
-		console.log('hi');
 		
-		var title = $("#fileName").val() + '';
-		var description = $("#pfileDescription").val() + '';
-		var image = $("#fileToUpload").val() + '';
-		var directory =  $("#fileDirectory").val() + '';
+		var select = $('#fileDirectory').val();
+		var user_id = sessionStorage.getItem("id");
+		console.log(select);
+
+		var formData = new FormData($('#uploadForm')[0]);
+		formData.append('selectDir', select);
+		formData.append('user_id1', user_id);
+		console.log(formData);
 		
-		
-		if (title == '' || image == '') {
-		alert("Insertion Failed Some Fields are Blank....!!");
-		} else {
-			$.post("assets/server/uploadPost.php", {
-				title1: title,
-				description1: description,
-				image1: image,
-				directory1: directory,
-				user_id1: id
-			}, function(data) {
-				if (!data) {
-					$('#uploadModal').modal('hide');
-			          alert("its done");
-				} 
+			$.ajax({
+			    url: "assets/server/uploadPost.php",
+			    data: formData,
+			    cache: false,
+			    contentType: false,
+			    processData: false,
+			    type: 'POST',
+			}, function(data){
+				console.log('hi')
+			    	if (data){
+			    		$('#upError').html('Upload failed');
+			    	}
+			    		$('#uploadModal').modal('hide');
+			    	
+			    
 			});
-		}
-	});
+		$('#upError').html('Upload failed')
+		var profile = new Profile;
+		profile.init();
+	})
 	
 		
 	$("#submit-login").click(function(e) {
@@ -72,29 +97,37 @@ $( document ).ready(function () {
 				email1: email,
 				password1: password
 			}, function(data) {
-				if (data) {
-					if (data == 'wrong password'){
+				
+					if (data) {
+						if (data == 'wrong password'){
+							$('#loginError').html('Wrong password.');
+							return;
+						}
+						if (data == "Could not successfully run query") {
+							$('#loginError').html('TryAgain.');
+						}
+						if(data == "No rows found") {
+							$('#loginError').html('No such user.');
+						}
+					} 
 						$('#myModalLogin').modal('hide');
-				          alert("Wrong password.");
-				          return;
-					}
+						$('#loginError').html("You've logged in Successfull");
+						sessionStorage.setItem('id', data);
+						var profile = new Profile(data);
+						profile.init();
+						console.log(sessionStorage.getItem('id'));
 					
-					$('#myModalLogin').modal('hide');
-			          alert("You've logged in Successfull");
-			          var profile = new Profile(data);
-			  		profile.init();
-			  		
-			  		
-				} else {
-					alert('no');
-					 
-				}
 				
 			} );
+			location.reload();
 		}
 		
 	});
-	
+	$("a#logout").click(function() {
+		console.log('in logout');
+		sessionStorage.removeItem("id");
+	});
+	console.log(sessionStorage.getItem("id"));
 });
 
 

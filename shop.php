@@ -29,8 +29,7 @@ session_start();
 <header id = "header">
 	<img  class="bottom" src="assets/images/city-black.png" >
 	
-	<p id = "login"><a data-toggle="modal" href="#myModalLogin">Login</a></p>
-	<p id = "register"><a data-toggle="modal" href="#myModalRegister">Register</a></p>
+	
 	<!-----------------------MODAL LOGIN------------------------------------------->
 	<div class="modal fade" id="myModalLogin" tabindex="-1" role="dialog" 
 	     aria-labelledby="myModalLabel" aria-hidden="true">
@@ -131,12 +130,12 @@ session_start();
 	</header>
 	<nav class="navbar">
 		<ul>
-			<li><a href="index.php">What's New</a></li>
-			<li><a href="shop.php">Categories</a></li>
-			<li><a data-toggle="modal" href="#myModalLogin">Login</a></li>
-			<li><a data-toggle="modal" href="#myModalRegister">Register</a></li>
-			<li ><a href="assets/server/logout.php">Logout</a></li>
-			<li><a href="profile.php">Profile</a></li>
+			<li><a href="index.php" id = "index">What's New</a></li>
+			<li><a href="shop.php" id = "shop">Categories</a></li>
+			<li><a href="profile.php" id = "profile">Profile</a></li>
+			<li ><a href="assets/server/logout.php" id = "logout">Logout</a></li>
+			<li><a data-toggle="modal" href="#myModalLogin" id = "login">Login</a></li>
+			<li><a data-toggle="modal" href="#myModalRegister"id = "register">Register</a></li>
 		</ul>
 	</nav>
 	<div class="container-fluid">

@@ -50,12 +50,14 @@ session_start();
 	                    <label for="email-login">Email address</label>
 	                      <input type="email" class="form-control"
 	                      id="email-login" placeholder="Enter email"/>
+	                      <p id = "emailError"></p>
 	                  </div>
 	                  <div class="form-group">
 	                    <label for="password1-login">Password</label>
 	                      <input type="password" class="form-control"
 	                          id="password1-login" placeholder="Password"/>
 	                  </div>
+	                  <p id = "loginError"> </p>
 	             </form>
 	            </div>
 	            
@@ -129,12 +131,12 @@ session_start();
 	  <div class="container">
 <p style ="display: none;" id = "hidden"><?php if (isset($_SESSION['valid']) && $_SESSION['valid']) {echo $_SESSION['id'];} else { echo ''; };?> </p>
 		<ul>
-			<li><a href="index.php">What's New</a></li>
-			<li><a href="shop.php">Categories</a></li>
-			<li><a data-toggle="modal" href="#myModalLogin">Login</a></li>
-			<li><a data-toggle="modal" href="#myModalRegister">Register</a></li>
-			<li ><a href="assets/server/logout.php">Logout</a></li>
-			<li><a href="profile.php">Profile</a></li>
+			<li><a href="index.php" id = "index">What's New</a></li>
+			<li><a href="shop.php" id = "shop">Categories</a></li>
+			<li><a href="profile.php" id = "profile">Profile</a></li>
+			<li ><a href="assets/server/logout.php" id = "logout">Logout</a></li>
+			<li><a data-toggle="modal" href="#myModalLogin" id = "login">Login</a></li>
+			<li><a data-toggle="modal" href="#myModalRegister"id = "register">Register</a></li>
 		</ul>
 	</div>
 	</nav>

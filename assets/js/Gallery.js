@@ -21,7 +21,6 @@ class Gallery {
 	
 	initPosts(container, postsArray) {
 		var posts = postsArray;
-		
 		for (var i = 0; i < posts.length; i++){
 			var title = posts[i].title;
 			var description = posts[i].description;
@@ -31,14 +30,9 @@ class Gallery {
 			var id = posts[i].id;
 		var post = new Post(userId, id, title, description, path, directory);
 		
-		$.ajax({
-		    url: "http://localhost/Mid-project/shop.php",
-		    success: function (data) {  
 		    	post.displayPosts(container);
 				post.createModal(container);
-		    },
-		    dataType: 'html'
-		});
+		    
 		this.setPosts(post);
 		
 		}
@@ -47,7 +41,6 @@ class Gallery {
 		var _this = this;
 		$.get("assets/server/posts.php", function(data) {
 			var result = JSON.parse(data);
-			
 			_this.initPosts(container, result);
 		});
 
